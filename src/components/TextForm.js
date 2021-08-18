@@ -13,11 +13,13 @@ export default function TextForm(props) {
       setText(textUppercase);
       setBtnText("Convert to Lowercase");
       setBtnStyle("btn btn-warning mx-1");
+      props.showAlert("Converted to Uppercase", "primary")
     } else {
       let textLowercase = text.toLowerCase();
       setText(textLowercase);
       setBtnText("Convert to Uppercase");
       setBtnStyle("btn btn-primary mx-1")
+      props.showAlert("Converted to Lowercase", "warning")
     }
   };
 
@@ -28,7 +30,14 @@ export default function TextForm(props) {
   //   };
 
   const removeText = () => {
-    setText("");
+      if (text.length > 0) {
+        setText("");
+        props.showAlert("Text Removed", "danger")
+      }
+      else{
+        props.showAlert("Nothing to Remove", "info")
+      }
+    
   };
 
   const handleOnChange = (e) => {
