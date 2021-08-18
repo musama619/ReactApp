@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar
-        navTitle="TextUtils"
+        navTitle="Text Analyzer"
         mode={mode}
         toggleMode={toggleMode}
       />
