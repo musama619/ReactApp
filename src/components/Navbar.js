@@ -1,11 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function Navbar(props) {
-    return (
-        <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  return (
+    <>
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand mx-auto" href="/">
             {props.navTitle}
@@ -33,22 +34,23 @@ export default function Navbar(props) {
                   About
                 </a>
               </li>
-       
             </ul>
-            
+
+            <form className="d-flex">
+              <i className={`bi-${props.mode==='light'?'moon-fill':'sun'} btn-lg text-${props.mode==='light'?'dark':'light'}`} onClick={props.toggleMode} >
+              </i>
+            </form>
           </div>
         </div>
       </nav>
-        </>
-    )
-
-    
+    </>
+  );
 }
 
 Navbar.propTypes = {
-    navTitle: PropTypes.string.isRequired 
-}
+  navTitle: PropTypes.string.isRequired,
+};
 
 Navbar.defaultProps = {
-    navTitle: "Set Title Here"
-}
+  navTitle: "Set Title Here",
+};
