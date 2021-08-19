@@ -44,6 +44,13 @@ export default function TextForm(props) {
     setText(e.target.value);
   };
 
+
+  const speakText = () => { 
+    var message = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(message);
+  
+  };
+
   return (
     <>
       <div>
@@ -61,6 +68,9 @@ export default function TextForm(props) {
         </div>
         <button className={btnStyle} onClick={toUppercase}>
           {btntext}
+        </button>
+        <button className="btn btn-success mx-1 text-white" onClick={speakText}>
+          Read Text
         </button>
         {/* <button className="btn btn-warning mx-1" onClick={toLowercase}>
           Convert to Lowercase
